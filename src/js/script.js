@@ -64,7 +64,7 @@
       thisProduct.getElements();
       thisProduct.initAccordion();
       thisProduct.initOrderForm();
-      // thisProduct.processOrder();
+      thisProduct.processOrder();
     }
 
     getElements(){
@@ -79,7 +79,7 @@
 
     initOrderForm() {
       const thisProduct = this;
-      console.log('initOrderForm');
+      // console.log('initOrderForm');
 
       thisProduct.form.addEventListener('submit', function(event){
         event.preventDefault();
@@ -142,11 +142,11 @@
 
     processOrder() {
       const thisProduct = this;
-      console.log('processOrder');
+      // console.log('processOrder');
 
       // covert form to object structure e.g. { sauce: ['tomato'], toppings: ['olives', 'redPeppers']}
       const formData = utils.serializeFormToObject(thisProduct.form);
-      console.log('formData', formData);
+      // console.log('formData', formData);
 
       // set price to default price
       let price = thisProduct.data.price;
@@ -162,7 +162,6 @@
         for(let optionId in param.options) {
         // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
           const option = param.options[optionId];
-          console.log(optionId, option);
           const isOptionDefault = option.hasOwnProperty('default');
 
           // check if there is param with a name of paramId in formData and if it includes optionId
@@ -171,18 +170,18 @@
             if(!isOptionDefault) {
             // add option price to price variable
               price += option.price;
-            } else {
+            } 
+          } else {
             // check if the option is default
-              if(isOptionDefault) {
+            if(isOptionDefault) {
               // reduce price variable
-                price -= option.price;
-              }
+              price -= option.price;
             }
           }
         }
-        // update calculated price in the HTML
-        thisProduct.priceElem.innerHTML = price;
       }
+      // update calculated price in the HTML
+      thisProduct.priceElem.innerHTML = price;
     }
   }
   
@@ -190,7 +189,7 @@
   const app = {
     initMenu: function () {
       const thisApp = this;
-      console.log('thisApp.data: ', thisApp.data);
+      // console.log('thisApp.data: ', thisApp.data);
 
       for (let productData in thisApp.data.products) {
         new Product(productData, thisApp.data.products[productData]);
@@ -202,11 +201,11 @@
     },
     init: function () {
       const thisApp = this;
-      console.log('*** App starting ***');
-      console.log('thisApp:', thisApp);
-      console.log('classNames:', classNames);
-      console.log('settings:', settings);
-      console.log('templates:', templates);
+      // console.log('*** App starting ***');
+      // console.log('thisApp:', thisApp);
+      // console.log('classNames:', classNames);
+      // console.log('settings:', settings);
+      // console.log('templates:', templates);
 
       thisApp.initData();
       thisApp.initMenu();
