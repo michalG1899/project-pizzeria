@@ -190,8 +190,6 @@
   const app = {
     initMenu: function () {
       const thisApp = this;
-      const testProduct = new Product();
-      console.log('testProduct:', testProduct);
       console.log('thisApp.data: ', thisApp.data);
 
       for (let productData in thisApp.data.products) {
@@ -209,6 +207,7 @@
       console.log('classNames:', classNames);
       console.log('settings:', settings);
       console.log('templates:', templates);
+
       thisApp.initData();
       thisApp.initMenu();
     },
