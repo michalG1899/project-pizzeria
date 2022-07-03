@@ -43,6 +43,12 @@ export const select = {
     peopleAmount: '.people-amount',
     hoursAmount: '.hours-amount',
     tables: '.floor-plan .table',
+    floorPlan: '.floor-plan',
+    starters: 'input[name="starter"]',
+    orderConfirmation: '.order-confirmation',
+    phone: '[name="phone"]',
+    address: '[name="address"]',
+    bookingButton: '.btn-secondary.book-table',
   },
   nav: {
     links: '.main-nav a',
@@ -74,6 +80,8 @@ export const classNames = {
   booking: {
     loading: 'loading',
     tableBooked: 'booked',
+    table: 'table',
+    selected: 'selected',
   },
   nav: {
     active: 'active',
@@ -115,8 +123,8 @@ export const settings = {
   // CODE ADDED END
   db: {
     url: '//localhost:3131',
-    products: 'products',
-    orders: 'orders',
+    product: 'products',
+    order: 'orders',
     booking: 'booking',
     event: 'event',
     dateStartParamKey: 'date_gte',

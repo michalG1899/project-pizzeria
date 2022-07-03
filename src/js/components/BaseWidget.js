@@ -1,9 +1,13 @@
+import { select } from '../settings.js';
+
 class BaseWidget {
   constructor(wrapperElement, initialValue) {
     const thisWidget = this;
 
     thisWidget.dom = {};
     thisWidget.dom.wrapper = wrapperElement;
+    thisWidget.dom.amountDecrease = thisWidget.dom.wrapper.querySelector(select.widgets.amount.linkDecrease);
+    thisWidget.dom.amountIncrease = thisWidget.dom.wrapper.querySelector(select.widgets.amount.linkIncrease);
 
     thisWidget.correctValue = initialValue;
   }
@@ -16,7 +20,8 @@ class BaseWidget {
 
   set value(value) {
     const thisWidget = this;
-    const newValue = parseInt(value);
+    const newValue = thisWidget.parseValue(value);
+
     if (thisWidget.correctValue !== newValue && this.isValid(newValue)) {
       thisWidget.correctValue = newValue;
       thisWidget.announce();
